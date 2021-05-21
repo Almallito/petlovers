@@ -1,0 +1,82 @@
+.contentHome {
+    height: 100vh;
+    width: 100vw;
+    background-image: url('../../assets/home.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.blur {
+    background: linear-gradient(40deg, rgba(235, 168, 9, 1), 40%, rgba(235, 168, 9, 0));
+    width: 100%;
+    height: 100%;
+}
+
+.intro {
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    color: #ffffff;
+}
+
+.intro h1 {
+    font-size: 4rem;
+    margin-bottom: 5px;
+}
+
+.intro h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.intro p {
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.intro .searchButton {
+    background-color: #ffffff;
+    padding: 15px 30px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+.intro .searchButton span {
+    color: #C48C07;
+    font-size: 1.1rem;
+}
+
+@media(max-width: 1180px) {
+    .contentHome {
+        background: #C48C07;
+    }
+    .blur {
+        background: inherit;
+    }
+}
+
+@media(max-width: 700px) {
+    .blur {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .intro {
+        position: inherit;
+        top: 0;
+        left: 0;
+    }
+    .intro h1 {
+        font-size: 3rem;
+        margin-bottom: 5px;
+    }
+    .intro h2 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+    }
+    .intro p {
+        margin-bottom: 15px;
+        font-size: 1rem;
+    }
+}

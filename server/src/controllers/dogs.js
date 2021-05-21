@@ -4,6 +4,8 @@ const path = require('path')
 const dotenv = require('dotenv')
 dotenv.config()
 
+const {Op} = require('sequelize')
+
 async function postDogs(req,res){
     try {
         const {dog_id} = req.params
@@ -44,11 +46,25 @@ async function upload(req, res) {
 async function getDog(req, res) {
     try {
         const { dog_id } = req.params
+        const { vermifugado, castrado, breedId } = req.query
         if (dog_id) {
+
             const dog = await ModelDogs.findByPk(dog_id)
             if (!dog) return res.status(400).json({ erro: 'Cachorro não existe' })
             return res.status(200).json(dog)
+
+        } else if(vermifugado || castrado || breedId){
+
+            const condition = {[Op.or]:{}}
+
+            if(vermifugado) condition[Op.or].vermifugado = vermifugado
+            if(castrado) condition[Op.or].castrado = castrado
+            if(breedId) condition[Op.or].breedId = breedId
+
+            const dog = await ModelDogs.findAll({where:{condition}})
+            return res.status(200).json(dog)
         } else {
+            
             const dogs = await ModelDogs.findAll()
             return res.status(200).json(dogs)
         }

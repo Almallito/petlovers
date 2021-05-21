@@ -21,23 +21,8 @@ module.exports = {
       senha: {
         type: Sequelize.STRING(255)
       },
-      rua: {
+      urlFoto: {
         type: Sequelize.STRING(255)
-      },
-      numero: {
-        type: Sequelize.STRING(10)
-      },
-      bairro: {
-        type: Sequelize.STRING(255)
-      },
-      cidade: {
-        type: Sequelize.STRING(255)
-      },
-      estado: {
-        type: Sequelize.STRING(2)
-      },
-      obs: {
-        type: Sequelize.STRING(2)
       }
     });
   },
