@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize')
 const conn = require('../config/sequelize')
 
-const {Model, DataTypes} = Sequelize
+const { Model, DataTypes } = Sequelize
 
 schema = {
     id: {
@@ -22,23 +22,8 @@ schema = {
     senha: {
         type: DataTypes.STRING(255)
     },
-    rua: {
+    urlFoto: {
         type: DataTypes.STRING(255)
-    },
-    numero: {
-        type: DataTypes.STRING(10)
-    },
-    bairro: {
-        type: DataTypes.STRING(255)
-    },
-    cidade: {
-        type: DataTypes.STRING(255)
-    },
-    estado: {
-        type: DataTypes.STRING(2)
-    },
-    obs: {
-        type: DataTypes.STRING(2)
     }
 }
 

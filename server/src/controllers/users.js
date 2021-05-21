@@ -10,13 +10,12 @@ async function authUser(req, res) {
         const { email, senha } = req.body
         const salt = process.env.BCRYPT_SALT
 
-        const {dataValues: user} = await ModelUser.findOne({ where: { email } })
-        console.log(user)
+        const { dataValues: user } = await ModelUser.findOne({ where: { email } })
         if (!user) return res.status(400).json({ erro: 'Usuario não cadastrado' })
 
         if (bcrypt.hashSync(senha, salt) === user.senha) {
             const hash = process.env.JWT_TOKEN
-            const token = jwt.sign({userId: user.id, userEmail: user.email}, hash, {
+            const token = jwt.sign({ userId: user.id, userEmail: user.email }, hash, {
                 expiresIn: '12h',
             })
             delete user.senha
@@ -54,21 +53,53 @@ async function postUser(req, res) {
         const values = req.body
 
         if (user_id) {
-            const user = await ModelUser.upsert({ id: user_id, ...values })
-            return res.status(200).json(user[0].dataValues)
-        } else {
-            if (values.senha) {
-                const salt = process.env.BCRYPT_SALT
-                values.senha = await bcrypt.hashSync(values.senha, salt)
-            }
-            const user = await ModelUser.create(values)
+            const salt = process.env.BCRYPT_SALT
+            values.senha = await bcrypt.hashSync(values.senha, salt)
+            await ModelUser.upsert({ id: user_id, ...values })
+            const user = await ModelUser.findByPk(user_id)
             delete user.senha
             return res.status(200).json(user)
+        } else {
+            return res.status(400).json({ erro: 'Id de usuario não informado' })
         }
     } catch (err) {
         return res.status(400).json({ erro: err })
     }
 }
+
+async function register(req, res) {
+    try {
+        const values = req.body
+
+        const searchUser = await ModelUser.findAll({ where: { email: values.email } })
+        if (searchUser.length > 0) return res.status(400).json({ erro: 'Email já cadastrado' })
+
+        const salt = process.env.BCRYPT_SALT
+        values.senha = await bcrypt.hashSync(values.senha, salt)
+        const { dataValues: { senha, ...user } } = await ModelUser.create(values)
+        return res.status(200).json(user)
+
+    } catch (err) {
+        return res.status(400).json({ erro: err })
+    }
+}
+
+async function validToken(req, res) {
+    try {
+        const { token } = req.body
+        const hash = process.env.JWT_TOKEN
+
+        await jwt.verify(token, hash, async(err, decoded) => {
+            if (err) return res.status(401).json({ token: false })
+            return res.status(200).json({ token: true })
+        })
+
+    } catch (err) {
+        return res.status(400).json({ erro: err })
+
+    }
+}
+
 async function deleteUser(req, res) {
     try {
         const { user_id } = req.params
@@ -87,4 +118,4 @@ async function deleteUser(req, res) {
 
 
 
-module.exports = { authUser, getUser, postUser, deleteUser }
+module.exports = { authUser, getUser, postUser, deleteUser, register, validToken }

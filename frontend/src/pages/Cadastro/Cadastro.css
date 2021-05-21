@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;500;600;700;800&display=swap');
+.contentCadastro {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    grid-template-rows: 1fr;
+    grid-template-areas: 'background form';
+}
+
+.backgroundImage {
+    background-image: url('../../assets/register.png');
+    background-size: 100vw 130vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    grid-area: background;
+}
+
+.form {
+    color: #ffffff;
+    grid-area: form;
+    background-color: #f2ac05;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.titleForm {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+
+.formulario {
+    width: 70%;
+}
+
+.buttonIcon:active {
+    background-color: #f2b80c
+}
+
+@media(max-width: 800px) {
+    .backgroundImage {
+        background: #C48C07;
+    }
+    .contentCadastro {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #C48C07;
+    }
+    .form {
+        width: 60%;
+        height: 80%;
+    }
+}
+
+@media(max-width: 600px) {
+    .form {
+        width: 70%;
+    }
+}
+
+@media(max-width: 500px) {
+    .form {
+        width: 80%;
+    }
+}
+
+@media(max-width: 400px) {
+    .form {
+        width: 90%;
+    }
+    .formulario {
+        width: 80%;
+    }
+}

@@ -1,0 +1,37 @@
+.buttonSend {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 30px;
+    background-color: #B88200;
+    cursor: pointer;
+}
+
+.buttonSend span {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: #fff;
+}
+
+.buttonIcon {
+    background-color: inherit;
+    padding: 5px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.container {
+    background-color: #ffffff;
+    width: 400px;
+    position: absolute;
+    top: 150px;
+    left: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    height: 400px;
+}

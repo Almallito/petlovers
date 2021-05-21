@@ -29,9 +29,9 @@ const Navbar = ({ title }) => {
                 </div>
             ) : (
                 <div className='logout'>
-                    <span className="title">Petlovers</span>
+                    <span className="title" onClick={() => history.push('/')}>Petlovers</span>
                     <div className="buttons">
-                        <button type='button' className='iconButton'>
+                        <button type='button' className='iconButton' onClick={() => history.push('/login')}>
                             <span className="textButton">Login</span>
                         </button>
                         <button type='button' className='iconButton' onClick={() => history.push('/register')}>

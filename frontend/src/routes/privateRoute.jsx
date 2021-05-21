@@ -1,13 +1,32 @@
-import React from 'react'
-import { Route, Redirect } from 'react-router'
+import React, { useEffect, useState } from 'react'
+import { Route, Redirect, useHistory } from 'react-router-dom'
 import { useAuth } from '../contexts/Auth'
 
+const PrivateRoute = ({component: Component, ...rest}) => {
+    const { signed, loading, verifyToken } = useAuth()
+    const history = useHistory()
+    useEffect(()=>{
+        verifyToken().then(resp=>{
+            if(resp) {
+                history.push(rest.path)
+            } else {
+                history.push('/')
+            }
+        })
+    },[signed === false])
 
-const PrivateRoute = ({ children, ...rest }) => {
-    const { signed } = useAuth()
-
-    return signed ? <Route {...rest}>{children}</Route> : <Redirect to='/'/>
-
+    return (
+        <Route
+        {...rest}
+        render={props =>
+          signed ? (
+            <Component {...props} />
+          ) : (
+            <Redirect to={props.location} />
+          )
+        }
+      />
+    )
 }
 
 export default PrivateRoute

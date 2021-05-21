@@ -1,0 +1,81 @@
+.contentLogin {
+    height: 100vh;
+    width: 100vw;
+    background-image: url('../../assets/login.png');
+    background-size: 100vw 120vh;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.blurLogin {
+    background: rgba(235, 168, 9, 0.3);
+    width: 100%;
+    height: 100%;
+}
+
+.contentLogin .columnInput .input {
+    border: none;
+}
+
+.contentLogin .columnInput .input,
+.contentLogin .columnInput .input input {
+    background-color: #F9F4E8;
+}
+
+.contentLogin ::-webkit-input-placeholder {
+    color: #F2AC05;
+    font-weight: 600;
+}
+
+.contentLogin :-moz-placeholder {
+    color: #F2AC05;
+    font-weight: 600;
+}
+
+.contentLogin ::-moz-placeholder {
+    color: #F2AC05;
+    font-weight: 600;
+}
+
+.contentLogin :-ms-input-placeholder {
+    color: #F2AC05;
+    font-weight: 600;
+}
+
+@media(max-width: 800px) {
+    .contentLogin {
+        background-size: 150vw 120vh;
+    }
+}
+
+@media(max-width: 700px) {
+    .contentLogin {
+        background-size: 200vw 120vh;
+    }
+    .blurLogin {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .container.login {
+        position: relative;
+        width: 70%;
+        left: 0;
+        top: 0;
+    }
+}
+
+@media(max-width: 500px) {
+    .contentLogin {
+        background-size: 250vw 120vh;
+    }
+    .container.login {
+        width: 80%;
+    }
+}
+
+@media(max-width: 400px) {
+    .container.login {
+        width: 90%;
+    }
+}

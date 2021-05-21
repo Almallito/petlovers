@@ -1,11 +1,14 @@
 import React from 'react'
-import { Route, Switch, Redirect } from 'react-router'
-import { BrowserRouter as Router } from 'react-router-dom'
+// import { Route, Switch, Redirect } from 'react-router'
+import { BrowserRouter as Router, Switch,Route } from 'react-router-dom'
 
 import PrivateRoute from './privateRoute'
+import ProtectedRoute from './ProtectedRoute'
 
 import Home from '../pages/Home'
 import Cadastro from '../pages/Cadastro'
+import Login from '../pages/Login'
+import MeusPets from '../pages/MeusPets'
 
 export default function Routes() {
 
@@ -14,12 +17,11 @@ export default function Routes() {
             <Switch>
                 <Route path='/' exact component={Home} />
                 <Route path='/register' exact component={Cadastro} />
-                <PrivateRoute>
-                    {/* <Route path={`/home`} exact component={Home} /> */}
-                </PrivateRoute>
-                <Route path='*'>
+                <Route path='/login' exact component={Login} />
+                <PrivateRoute exact path="/mypets" component={MeusPets} />
+                {/* <Route path='*'>
                     <Redirect to='/' />
-                </Route>
+                </Route> */}
             </Switch>
         </Router>
     )
