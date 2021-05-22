@@ -4,8 +4,45 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: absolute;
+    position: fixed;
     width: 100vw;
+    z-index: 1;
+}
+
+.login {
+    display: grid;
+    grid-template-areas: 'menu title space user';
+    grid-template-rows: 1fr;
+    grid-template-columns: 10% 20% 1fr 25%;
+}
+
+.user {
+    grid-area: user;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: #fff;
+    font-weight: 500;
+}
+
+.user div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.photo {
+    overflow: hidden;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.photo img {
+    width: 60px;
 }
 
 .logout {
@@ -17,6 +54,9 @@
 
 .title {
     grid-area: title;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     font-size: 2.1rem;
     font-weight: 200;
@@ -47,6 +87,12 @@
     font-size: 1.2rem;
 }
 
+@media(max-width: 1050px) {
+    .login {
+        grid-template-columns: 10% 25% 1fr 32%;
+    }
+}
+
 @media(max-width: 1000px) {
     .logout {
         grid-template-columns: 20% 1fr 25%;
@@ -57,11 +103,27 @@
     .logout {
         grid-template-columns: 30% 1fr 35%;
     }
+    .login {
+        grid-template-columns: 10% 30% 1fr 40%;
+    }
 }
 
 @media(max-width: 700px) {
     .logout {
         grid-template-columns: 45% 1fr 40%;
+    }
+    .login {
+        grid-template-columns: 10% 30% 1fr 45%;
+    }
+}
+
+@media(max-width: 600px) {
+    .login {
+        grid-template-areas: 'menu space user';
+        grid-template-columns: 20% 1fr 55%;
+    }
+    .title {
+        display: none;
     }
 }
 
@@ -74,5 +136,15 @@
     }
     .iconButton .textButton {
         font-size: 1rem;
+    }
+    .login {
+        grid-template-areas: 'menu user';
+        grid-template-columns: 30% 70%;
+    }
+}
+
+@media(max-width: 400px) {
+    .login {
+        grid-template-columns: 20% 80%;
     }
 }

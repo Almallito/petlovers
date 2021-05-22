@@ -35,3 +35,17 @@
     border-radius: 10px;
     height: 400px;
 }
+
+.backgroundContent {
+    background-color: #eae7ed;
+    padding-top: 100px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+
+.backgroundContent .conteudo {
+    width: 90%;
+    margin-bottom: 50px;
+}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import './Login.css'
 
 import Navbar from '../../components/Navbar'
@@ -10,8 +10,10 @@ import {useHistory} from 'react-router-dom'
 
 const Login = () => {
 
-    const {singIn} = useAuth()
+    const {signed,singIn,singOut} = useAuth()
     const history = useHistory()
+
+    useEffect(()=>{}, [])
 
     const initialValues = {
         nome: '',
@@ -31,7 +33,7 @@ const Login = () => {
 
     return (
         <>
-            <Navbar />
+            <Navbar notLogged/>
             <div className="contentLogin">
                 <div className="blurLogin">
                     <div className="container login">

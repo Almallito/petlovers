@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
             return user
 
         }).catch(err => {
-            alert(`ERRO: ${err.response.data.erro}`)
+            alert(`ERRO: ${JSON.stringify(err.response.data)}`)
             return
         })
         return user

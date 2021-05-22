@@ -28,18 +28,22 @@
 }
 
 .contentLogin :-moz-placeholder {
-    color: #F2AC05;
+    color: #CA8E00;
     font-weight: 600;
 }
 
 .contentLogin ::-moz-placeholder {
-    color: #F2AC05;
+    color: #CA8E00;
     font-weight: 600;
 }
 
 .contentLogin :-ms-input-placeholder {
-    color: #F2AC05;
+    color: #CA8E00;
     font-weight: 600;
+}
+
+.contentLogin .buttonSend {
+    background-color: #F2AC05;
 }
 
 @media(max-width: 800px) {

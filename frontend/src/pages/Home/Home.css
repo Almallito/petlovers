@@ -22,11 +22,13 @@
 
 .intro h1 {
     font-size: 4rem;
+    font-weight: 800;
     margin-bottom: 5px;
 }
 
 .intro h2 {
     font-size: 3rem;
+    font-weight: 800;
     margin-bottom: 10px;
 }
 
@@ -37,14 +39,14 @@
 
 .intro .searchButton {
     background-color: #ffffff;
-    padding: 15px 30px;
+    padding: 18px 50px;
     border-radius: 30px;
     cursor: pointer;
 }
 
 .intro .searchButton span {
     color: #C48C07;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
 }
 
 @media(max-width: 1000px) {
