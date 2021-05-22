@@ -1,13 +1,10 @@
 import React, { createContext, useContext, useState } from 'react'
 import api from '../service/api'
-import { useHistory } from "react-router-dom";
 
 const AuthContext = createContext({})
 
 export const AuthProvider = ({ children }) => {
     const [signed, setSigned] = useState(false)
-    const [loading, setLoading] = useState(false)
-    const history = useHistory()
 
 
     const singIn = async (values) => {
@@ -58,7 +55,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     return (
-        <AuthContext.Provider value={{ singIn, singOut, signed, verifyToken, loading }}>
+        <AuthContext.Provider value={{ singIn, singOut, signed, verifyToken }}>
             {children}
         </AuthContext.Provider>
     )

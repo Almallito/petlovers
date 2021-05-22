@@ -13,7 +13,7 @@ const MeusPets = () => {
 
     useEffect(()=> {
         getDogs()
-    },[])
+    },[getDogs])
 
     return (
         <>

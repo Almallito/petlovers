@@ -11,7 +11,7 @@ import {useRequests} from '../../contexts/Requests'
 const Cadastro = () => {
     const history = useHistory()
     const {register} = useRequests()
-    const initialValues = {
+    let initialValues = {
         nome: '',
         email: '',
         senha: '',

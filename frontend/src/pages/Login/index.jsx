@@ -5,17 +5,23 @@ import Navbar from '../../components/Navbar'
 import { Formik, Form } from 'formik'
 import Input from '../../components/Input'
 import * as yup from 'yup'
-import {useAuth} from '../../contexts/Auth'
-import {useHistory} from 'react-router-dom'
+import { useAuth } from '../../contexts/Auth'
+import { useHistory } from 'react-router-dom'
+
 
 const Login = () => {
 
-    const {signed,singIn,singOut} = useAuth()
+    const {singIn} = useAuth()
     const history = useHistory()
 
-    useEffect(()=>{}, [])
+    useEffect(()=>{
+        const token = localStorage.getItem('@token')
+        if(token){
+            history.push('mypets')
+        }
+    },[history])
 
-    const initialValues = {
+    let initialValues = {
         nome: '',
         email: ''
     }
@@ -37,7 +43,7 @@ const Login = () => {
             <div className="contentLogin">
                 <div className="blurLogin">
                     <div className="container login">
-                        <Formik initialValues={{}}
+                        <Formik
                             onSubmit={handleSubmit}
                             initialValues={initialValues}
                             validationSchema={validations}

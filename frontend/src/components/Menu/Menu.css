@@ -73,11 +73,11 @@
     flex-direction: column;
     font-size: 1.2rem;
     font-weight: 300;
-    color: #ffffff
 }
 
-.menu .buttons ul a {
+.menu .buttons ul span {
     cursor: pointer;
+    color: #ffffff;
 }
 
 .menu .buttons ul a:active {

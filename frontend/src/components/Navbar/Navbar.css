@@ -122,7 +122,7 @@
         grid-template-areas: 'menu space user';
         grid-template-columns: 20% 1fr 55%;
     }
-    .title {
+    .login .title {
         display: none;
     }
 }

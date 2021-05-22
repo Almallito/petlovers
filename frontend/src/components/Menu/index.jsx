@@ -2,10 +2,14 @@ import React from 'react'
 import './Menu.css'
 import PhotoUser from '../../assets/user.png'
 import {useAuth} from '../../contexts/Auth'
+import {useHistory} from 'react-router-dom'
 
 const Menu = ({opened, setOpened}) => {
-    const userInfo = JSON.parse(localStorage.getItem('@myuser'))
+    const userInfo = JSON.parse(localStorage.getItem('@myuser')) || {}
     const {singOut} = useAuth()
+    const history = useHistory(
+
+    )
     return (
         <div id='backdrop' className={opened ? 'backdrop opened' : 'backdrop'} onClick={event => {
             if(event.target.id === 'backdrop'){
@@ -22,19 +26,19 @@ const Menu = ({opened, setOpened}) => {
                 <div className="buttons">
                     <ul>
                         <li>
-                            <a>Procurar pets</a>
+                            <span onClick={()=>history.push('/searchPets')}>Procurar pets</span>
                         </li>
                         <li>
-                            <a>Cadastrar pets</a>
+                            <span onClick={()=>history.push('/registerPets')}>Cadastrar pets</span>
                         </li>
                         <li>
-                            <a>Meus pets</a>
+                            <span onClick={()=>history.push('/mypetsPets')}>Meus pets</span>
                         </li>
                         <li>
-                            <a>Configurações</a>
+                            <span onClick={()=>history.push('/searchPets')}>Configurações</span>
                         </li>
                         <li>
-                            <a onClick={()=>singOut()}>Sair</a>
+                            <span onClick={()=>singOut()}>Sair</span>
                         </li>
                     </ul>
                 </div>

@@ -20,10 +20,10 @@ routes.get('/users', verifyToken, UserController.getUser)
 routes.get('/users/:user_id', verifyToken, UserController.getUser)
 routes.delete('/users/:user_id', verifyToken, UserController.deleteUser)
 
+routes.get("/dogs", DogsController.getDog)
 routes.post("/dogs", verifyToken, DogsController.postDogs)
 routes.post("/dogs/:dog_id", verifyToken, DogsController.postDogs)
 routes.post("/dogs/photo/:dog_id", verifyToken, multer(multerConfig).single("file"), DogsController.upload)
-routes.get("/dogs", verifyToken, DogsController.getDog)
 routes.get("/dogs/:dog_id", verifyToken, DogsController.getDog)
 routes.delete("/dogs/:dog_id", verifyToken, DogsController.deleteDog)
 
