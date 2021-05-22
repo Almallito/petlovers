@@ -49,7 +49,6 @@ async function getDog(req, res) {
         const { dog_id } = req.params
         const { vermifugado, castrado, breedId } = req.query
         if (dog_id) {
-
             const dog = await ModelDogs.findByPk(dog_id)
             if (!dog) return res.status(400).json({ erro: 'Cachorro não existe' })
 
@@ -61,14 +60,15 @@ async function getDog(req, res) {
         } else if (vermifugado || castrado || breedId) {
 
             const condition = {
-                [Op.or]: {}
+                [Op.and]: {}
             }
 
-            if (vermifugado) condition[Op.or].vermifugado = vermifugado
-            if (castrado) condition[Op.or].castrado = castrado
-            if (breedId) condition[Op.or].breedId = breedId
+            if (vermifugado) condition[Op.and].vermifugado = !!vermifugado
+            if (castrado) condition[Op.and].castrado = !!castrado
+            if (breedId) condition[Op.and].breedId = Number(breedId)
 
-            const dog = await ModelDogs.findAll({ where: { condition } })
+            const dog = await ModelDogs.findAll({ where: condition })
+            console.log('chegous')
 
             if (dog.length > 0) {
                 await Promise.all(dog.map(async d => {

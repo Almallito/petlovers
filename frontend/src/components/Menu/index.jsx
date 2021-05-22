@@ -32,7 +32,7 @@ const Menu = ({opened, setOpened}) => {
                             <span onClick={()=>history.push('/registerPets')}>Cadastrar pets</span>
                         </li>
                         <li>
-                            <span onClick={()=>history.push('/mypetsPets')}>Meus pets</span>
+                            <span onClick={()=>history.push('/myPets')}>Meus pets</span>
                         </li>
                         <li>
                             <span onClick={()=>history.push('/searchPets')}>Configurações</span>

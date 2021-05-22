@@ -13,7 +13,7 @@ const MeusPets = () => {
 
     useEffect(()=> {
         getDogs()
-    },[getDogs])
+    },[])
 
     return (
         <>
@@ -23,11 +23,14 @@ const MeusPets = () => {
                 <div className='conteudo'>
                     <span className="titleBody">Meus pets cadastrados</span>
                     <div className="cards">
-                        {listDogs.map((d,i) => {
+                        {listDogs.length > 0 && listDogs.map((d,i) => {
                             return (
                                 <Card values={d} key={`${i}mydog`}/>
                             )
                         })}
+                        {listDogs.length < 1 && (
+                            <span className="msg">Nenhum pet cadastrado</span>
+                        )}
                     </div>
                 </div>
             </div>

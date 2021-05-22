@@ -1,0 +1,77 @@
+.contentSearch {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    padding-top: 100px;
+}
+
+.filters {
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    width: 290px;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    left: 50px;
+    top: 150px;
+    background-color: #ffffff;
+    color: #6F6F6F;
+    padding: 35px 25px;
+}
+
+.cardsSearch {
+    margin-left: 400px;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.selectInput {
+    display: flex;
+    margin: 5px 0;
+    overflow: hidden;
+    justify-content: space-between;
+    padding: 12px 15px;
+    border-radius: 5px;
+    background-color: #E9E9E9;
+    margin-top: 5px;
+}
+
+.selectInput select {
+    color: #6F6F6F;
+    width: 100%;
+    background-color: inherit;
+}
+
+.check {
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.check label {
+    margin-left: 5px;
+}
+
+.filterButton {
+    background-color: #F2AC05;
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: 100%;
+    bottom: 10px;
+}
+
+.filterButton span {
+    color: #fff;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+.formSearch {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}

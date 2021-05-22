@@ -5,6 +5,7 @@ const RequestsContext = createContext({})
 
 export const RequestsProvider = ({ children }) => {
     const [listDogs, setListDogs] = useState([])
+    const [listBreeds, setListBreeds] = useState([])
 
     async function register(values){
         api.post('/users/register', values).then(({data})=>{
@@ -15,8 +16,9 @@ export const RequestsProvider = ({ children }) => {
         })
     }
 
-    async function getDogs(){
-        api.get('/dogs').then(values => {
+    async function getDogs(params = {}){
+        let request = {params: params}
+        api.get('/dogs', request).then(values => {
             const {data} = values
             setListDogs(data)
             return data
@@ -25,9 +27,19 @@ export const RequestsProvider = ({ children }) => {
             return new Error(err)
         })
     }
+    async function getBreeds(){
+        api.get('/breeds').then(values => {
+            const {data} = values
+            setListBreeds(data)
+            return data
+        }).catch(err => {
+            alert(`ERRO: ${JSON.stringify(err.response.data)}`)
+            return new Error(err)
+        })
+    }
 
     return (
-        <RequestsContext.Provider value={{register, getDogs,listDogs}}>
+        <RequestsContext.Provider value={{register, getDogs,listDogs, getBreeds, listBreeds}}>
             {children}
         </RequestsContext.Provider>
     )
