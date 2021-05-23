@@ -22,7 +22,8 @@ Tecnologias aplicadas:
 - execute o comando "yarn"
 - copie os dados do arquivo .env.example e crie um arquivo .env na raiz da pasta ./server com as informações de seu banco de dados
 - execute o comando "yarn start-project" na raiz da pasta ./server
-- em outro terminal entre na pasta ./frontend e execute "yarn" e após "yarn start"
+- em outro terminal entre em ./frontend/src/service/api.js e configure o ip de sua maquina
+- volte para ./frontend e execute "yarn" e após "yarn start"
 
 
 ## Algumas screenshots
