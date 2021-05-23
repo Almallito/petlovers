@@ -28,6 +28,10 @@ const CadastroPets = () => {
     }, [])
 
     async function changeFile(element) {
+        if(element.target.files[0].size > 4500000){
+            alert('Tamnho de imagem superior a 4mb, selecione outra imagem!')
+            return;
+        }
         const formData = new FormData();
         formData.append('file', element.target.files[0]);
         uploadFotoPet(formData).then(resp => {

@@ -42,6 +42,7 @@ export const AuthProvider = ({ children }) => {
             const resp = await api.post('/users/validToken', { token: token })
             if (resp.data.token) {
                 await setSigned(true)
+                await localStorage.setItem('@myuser', JSON.stringify(resp.data.user))
                 resolve(true);
 
             } else {

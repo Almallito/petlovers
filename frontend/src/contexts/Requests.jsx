@@ -47,11 +47,29 @@ export const RequestsProvider = ({ children }) => {
             return new Error(err)
         })
     }
+    async function uploadFotoUser(file) {
+        return api.post('/users/photo', file).then(resp => {
+            const { data } = resp
+            return data.urlFoto
+        }).catch((err) => {
+            alert(`ERRO: ${JSON.stringify(err.response.data)}`)
+            return new Error(err)
+        })
+    }
 
     async function postBreed(values) {
         return api.post('/breeds', values).then(async resp => {
-            const { data } = values
+            const { data } = resp
             await getBreeds()
+            return data
+        }).catch(err => {
+            alert(`ERRO: ${JSON.stringify(err.response.data)}`)
+            return new Error(err)
+        })
+    }
+    async function postUser(values) {
+        return api.post('/users', values).then(async resp => {
+            const { data } = resp
             return data
         }).catch(err => {
             alert(`ERRO: ${JSON.stringify(err.response.data)}`)
@@ -60,7 +78,7 @@ export const RequestsProvider = ({ children }) => {
     }
     async function postDog(values) {
         return api.post('/dogs', values).then(async resp => {
-            const { data } = values
+            const { data } = resp
             return data
         }).catch(err => {
             alert(`ERRO: ${JSON.stringify(err.response.data)}`)
@@ -77,7 +95,9 @@ export const RequestsProvider = ({ children }) => {
             listBreeds, 
             uploadFotoPet,
             postBreed,
-            postDog }}>
+            postDog,
+            uploadFotoUser,
+            postUser}}>
             {children}
         </RequestsContext.Provider>
     )

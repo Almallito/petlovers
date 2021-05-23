@@ -18,7 +18,7 @@ routes.post('/users/validToken', UserController.validToken)
 
 routes.post('/users', verifyToken, UserController.postUser)
 routes.get('/users', verifyToken, UserController.getUser)
-routes.post('/users/:user_id', verifyToken, UserController.postUser)
+routes.post('/users/photo', verifyToken, multer(multerConfig).single("file"), DogsController.upload)
 routes.get('/users/:user_id', verifyToken, UserController.getUser)
 routes.delete('/users/:user_id', verifyToken, UserController.deleteUser)
 

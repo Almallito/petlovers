@@ -55,6 +55,8 @@ async function getDog(req, res) {
                 [Op.and]: {}
             }
 
+            console.log(userId)
+
             if (vermifugado) condition[Op.and].vermifugado = !!vermifugado
             if (castrado) condition[Op.and].castrado = !!castrado
             if (breedId) condition[Op.and].breedId = Number(breedId)

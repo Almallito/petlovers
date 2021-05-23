@@ -10,6 +10,7 @@ import Login from '../pages/Login'
 import MeusPets from '../pages/MeusPets'
 import PesquisaPets from '../pages/PesquisaPets'
 import CadastroPets from '../pages/CadastroPets'
+import Configuracao from '../pages/Configuracao'
 
 export default function Routes() {
 
@@ -23,6 +24,7 @@ export default function Routes() {
                 <Route path='/searchpets' exact component={PesquisaPets} />
                 <PrivateRoute exact path="/mypets" component={MeusPets} />
                 <PrivateRoute exact path="/registerpets" component={CadastroPets} />
+                <PrivateRoute exact path="/config" component={Configuracao} />
                 <Redirect to='/'/>
             </Switch>
         </Router>

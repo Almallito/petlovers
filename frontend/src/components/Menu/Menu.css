@@ -49,8 +49,14 @@
 .menu .userInfo .photo {
     border-radius: 50%;
     width: 140px;
+    height: 140px;
     margin-bottom: 10px;
     border: 4px solid #fff;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    display: flex;
+    position: relative;
 }
 
 .menu .userInfo img {

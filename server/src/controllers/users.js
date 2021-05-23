@@ -52,14 +52,11 @@ async function getUser(req, res) {
 
 async function postUser(req, res) {
     try {
-        const { user_id } = req.params
-        const values = req.body
+        const {userId, ...values} = req.body
 
-        if (user_id) {
-            const salt = process.env.BCRYPT_SALT
-            values.senha = await bcrypt.hashSync(values.senha, salt)
-            await ModelUser.upsert({ id: user_id, ...values })
-            const user = await ModelUser.findByPk(user_id)
+        if (userId) {
+            await ModelUser.upsert({ id: userId, ...values })
+            const user = await ModelUser.findByPk(userId)
             delete user.senha
             return res.status(200).json(user)
         } else {
@@ -94,7 +91,8 @@ async function validToken(req, res) {
 
         await jwt.verify(token, hash, async(err, decoded) => {
             if (err) return res.status(401).json({ token: false })
-            return res.status(200).json({ token: true })
+            const user = await ModelUser.findByPk(decoded.userId)
+            return res.status(200).json({ token: true, user: user })
         })
 
     } catch (err) {
