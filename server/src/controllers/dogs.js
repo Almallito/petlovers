@@ -16,7 +16,7 @@ async function postDogs(req, res) {
             const dog = await ModelDogs.upsert({ id: dog_id, ...values })
             return res.status(200).json(dog[0].dataValues)
         } else {
-            const dog = await ModelDogs.create({...values, userId: tokenInfo.userId })
+            const dog = await ModelDogs.create({ userId: tokenInfo.userId, idade: Number(values.idade), ...values,})
             return res.status(200).json(dog)
         }
 
@@ -28,16 +28,8 @@ async function postDogs(req, res) {
 async function upload(req, res) {
     try {
         const { key } = req.file
-        const { dog_id } = req.params
-
-        const dog = await ModelDogs.findByPk(dog_id)
-        if (!dog) return res.status(400).json({ erro: 'Id informado não encontrado' })
-
         const url = `${process.env.APP_URL}/files/${key}`
-
-        await ModelDogs.update({ urlFoto: url }, { where: { id: dog_id } })
-
-        return res.status(200).json(dog);
+        return res.status(200).json({urlFoto: url});
 
     } catch (err) {
         return res.status(400).json({ erro: err })
@@ -47,7 +39,7 @@ async function upload(req, res) {
 async function getDog(req, res) {
     try {
         const { dog_id } = req.params
-        const { vermifugado, castrado, breedId } = req.query
+        const { vermifugado, castrado, breedId, userId } = req.query
         if (dog_id) {
             const dog = await ModelDogs.findByPk(dog_id)
             if (!dog) return res.status(400).json({ erro: 'Cachorro não existe' })
@@ -57,7 +49,7 @@ async function getDog(req, res) {
 
             return res.status(200).json(dog)
 
-        } else if (vermifugado || castrado || breedId) {
+        } else if (vermifugado || castrado || breedId || userId) {
 
             const condition = {
                 [Op.and]: {}
@@ -66,9 +58,9 @@ async function getDog(req, res) {
             if (vermifugado) condition[Op.and].vermifugado = !!vermifugado
             if (castrado) condition[Op.and].castrado = !!castrado
             if (breedId) condition[Op.and].breedId = Number(breedId)
+            if (userId) condition[Op.and].userId = Number(userId)
 
             const dog = await ModelDogs.findAll({ where: condition })
-            console.log('chegous')
 
             if (dog.length > 0) {
                 await Promise.all(dog.map(async d => {

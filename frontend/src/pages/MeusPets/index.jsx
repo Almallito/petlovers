@@ -10,9 +10,10 @@ import {useRequests} from '../../contexts/Requests'
 const MeusPets = () => {
     const [menuOpen, setMenuOpen] = useState(false)
     const {getDogs,listDogs} = useRequests()
+    const user = JSON.stringify(localStorage.getItem('@myuser'))
 
     useEffect(()=> {
-        getDogs()
+        getDogs({userId: user.id})
     },[])
 
     return (

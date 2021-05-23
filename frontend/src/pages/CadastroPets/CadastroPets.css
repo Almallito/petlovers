@@ -1,0 +1,157 @@
+.contentCad {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 100px;
+    width: 100%;
+    height: 100%;
+}
+
+.containerCad {
+    width: 571px;
+    /* height: 562px; */
+    margin-bottom: 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    overflow: hidden;
+    padding: 0 0 10px 0;
+
+}
+
+.containerCad .header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 15px;
+    background-color: #f2ac05;
+}
+
+.containerCad .header span {
+    font-size: 1.2rem;
+    color: #ffffff;
+    font-weight: 300;
+}
+
+.bodyCad {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    /* margin: 20px 0 -20px 0; */
+}
+
+.formCad {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.formCad  {
+    width: 80%;
+    height: 100%;
+    margin-top: 20px;
+}
+
+.columnInput .input,
+.columnInput,
+.selectInput{
+    width: 100%;
+}
+.formCad .inputColumn {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+}
+.erroMsg {
+    color: #66081B;
+    font-size: 0.7rem;
+}
+
+.formCad .check{
+    align-self: start;
+}
+
+.inputNone{
+    width: 300px;
+    overflow: hidden;
+    margin-top: 25px;
+}
+
+.inputNone input{
+    display: none;
+}
+.labelInputNone{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 15px;
+    border: 3px dashed #F2AC05;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.inputPhoto{
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.photoDog {
+    width: 300px;
+    height: 200px;
+    overflow: hidden;
+    margin-top: 25px;
+    border-radius: 20px;
+    z-index: 0;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+}
+.photoDog img{
+    width: 100%;
+}
+
+.raca{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 100%;
+}
+
+.raca .buttonIconAdd{
+    background-color: inherit;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+}
+.raca .buttonIconAdd:active{
+    background-color: rgba(242, 172, 5,0.3);
+}
+
+.bodyModal{
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.titleModal{
+    align-self: start;
+    font-size: 1.2rem;
+    font-weight: 300;
+}
+

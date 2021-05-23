@@ -12,7 +12,8 @@ async function authUser(req, res) {
 
         const search = await ModelUser.findAll({ where: { email } })
         const user = search[0].dataValues
-
+        
+        console.log(user)
         if (!user) return res.status(400).json({ erro: 'Usuario não cadastrado' })
 
         if (bcrypt.hashSync(senha, salt) === user.senha) {

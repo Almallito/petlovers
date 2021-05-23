@@ -28,7 +28,7 @@ const Cadastro = () => {
     function handleSubmit(values){
         const {validation, ...dados} = values
         register(dados).then(()=> {
-            history.push('/')
+            history.push('/login')
         }).catch(err => {
             alert('Ocorreu um erro ao realizar cadastro')
         })

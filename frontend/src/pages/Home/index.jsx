@@ -17,7 +17,7 @@ const Home = () => {
                         <h2>Adote um doguinho!</h2>
                         <p>A petlovers te ajuda a encontrar o seu novo <br />
                         amiguinho. Basta clicar no botão abaixo!</p>
-                        <button type='button' className='searchButton' onClick={() => history.push('/searchPets')}>
+                        <button type='button' className='searchButton' onClick={() => history.push('/searchpets')}>
                             <span>Procurar doguineos</span>
                         </button>
                     </div>

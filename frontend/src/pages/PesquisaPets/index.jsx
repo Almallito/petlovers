@@ -22,7 +22,7 @@ const PesquisaPets = () => {
 
     function handleSubmit(values){
         const params = {}
-        if(values.breedId != '') params.breedId = values.breedId
+        if(values.breedId !== '') params.breedId = values.breedId
         if(values.verm) params.vermifugado = values.verm
         if(values.cast) params.castrado = values.cast
         getDogs(params)

@@ -26,49 +26,6 @@
     flex-wrap: wrap;
 }
 
-.selectInput {
-    display: flex;
-    margin: 5px 0;
-    overflow: hidden;
-    justify-content: space-between;
-    padding: 12px 15px;
-    border-radius: 5px;
-    background-color: #E9E9E9;
-    margin-top: 5px;
-}
-
-.selectInput select {
-    color: #6F6F6F;
-    width: 100%;
-    background-color: inherit;
-}
-
-.check {
-    margin: 10px 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.check label {
-    margin-left: 5px;
-}
-
-.filterButton {
-    background-color: #F2AC05;
-    border-radius: 5px;
-    padding: 10px 20px;
-    width: 100%;
-    bottom: 10px;
-}
-
-.filterButton span {
-    color: #fff;
-    font-weight: 500;
-    font-size: 1rem;
-}
-
 .formSearch {
     display: flex;
     flex-direction: column;

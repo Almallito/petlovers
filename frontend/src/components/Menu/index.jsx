@@ -26,19 +26,22 @@ const Menu = ({opened, setOpened}) => {
                 <div className="buttons">
                     <ul>
                         <li>
-                            <span onClick={()=>history.push('/searchPets')}>Procurar pets</span>
+                            <span onClick={()=>history.push('/searchpets')}>Procurar pets</span>
                         </li>
                         <li>
-                            <span onClick={()=>history.push('/registerPets')}>Cadastrar pets</span>
+                            <span onClick={()=>history.push('/registerpets')}>Cadastrar pets</span>
                         </li>
                         <li>
-                            <span onClick={()=>history.push('/myPets')}>Meus pets</span>
+                            <span onClick={()=>history.push('/mypets')}>Meus pets</span>
                         </li>
                         <li>
-                            <span onClick={()=>history.push('/searchPets')}>Configurações</span>
+                            <span onClick={()=>history.push('/config')}>Configurações</span>
                         </li>
                         <li>
-                            <span onClick={()=>singOut()}>Sair</span>
+                            <span onClick={()=>{
+                                history.push('/')
+                                singOut()
+                            }}>Sair</span>
                         </li>
                     </ul>
                 </div>
